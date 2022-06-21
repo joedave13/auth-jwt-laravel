@@ -43,7 +43,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->except('_token'), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255', 'email', 'unique:users'],
-            'password' => ['required', 'string', 'max:255']
+            'password' => ['required', 'string', 'max:255', 'confirmed']
         ]);
 
         if ($validator->fails()) {
